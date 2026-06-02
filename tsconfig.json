@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "types": [
+      "node"
+    ]
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "src/controllers/user/auth-api/auth.controller.ts",
+    "src/controllers/user/home-api/home.controller.ts",
+    "src/routes/user/home.route.ts",
+    "src/utils/functions.ts",
+    "src/middleware/socketAuth.middleware.ts",
+    "src/middleware/trafficMonitor.middleware.ts"
+  ]
+}

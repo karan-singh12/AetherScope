@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String?
+  email         String         @unique
+  passwordHash  String
+  conversations Conversation[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Conversation {
+  id           String         @id @default(cuid())
+  title        String         @default("New Conversation")
+  sessionId    String         @unique @default(cuid())
+  provider     String         @default("openai")
+  model        String         @default("gpt-4.1")
+  user         User           @relation(fields: [userId], references: [id])
+  userId       String
+  messages     Message[]
+  logs         InferenceLog[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+  role           String
+  content        String
+  createdAt      DateTime     @default(now())
+}
+
+model InferenceLog {
+  id               String       @id @default(cuid())
+  conversation     Conversation @relation(fields: [conversationId], references: [id])
+  conversationId   String
+  provider         String
+  model            String
+  latency          Int
+  promptTokens     Int
+  completionTokens Int
+  totalTokens      Int
+  status           String
+  inputPreview     String?
+  outputPreview    String?
+  errorMessage     String?
+  timestamp        DateTime     @default(now())
+}
