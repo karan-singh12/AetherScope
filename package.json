@@ -1,5 +1,5 @@
 {
-  "name": "aetherscope-backend",
+  "name": "aetherscope-api",
   "version": "1.0.0",
   "description": "AetherScope — AI Observability & Inference Analytics API",
   "main": "index.js",
