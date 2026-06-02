@@ -1,7 +1,7 @@
 {
-  "name": "msc-api",
+  "name": "aetherscope-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "AetherScope — AI Observability & Inference Analytics API",
   "main": "index.js",
   "scripts": {
     "test": "jest",
