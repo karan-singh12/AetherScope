@@ -10,7 +10,8 @@ export const createConversation = async (req: Request, res: Response) => {
       return apiRes.unauthorizedResponse(res, 'Unauthorized');
     }
 
-    const conversation = await service.createConversation(userId);
+    const { provider, model } = req.body;
+    const conversation = await service.createConversation(userId, provider, model);
     return apiRes.successResponse(res, 'Conversation created', conversation);
   } catch (error: unknown) {
     return apiRes.errorResponse(res, error instanceof Error ? error.message : 'Could not create conversation', 400);

@@ -16,7 +16,7 @@ export const sendMessage = async (conversationId: string, prompt: string) => {
     },
   });
 
-  const providerKey = (conversation.provider as ProviderKey) ?? 'openai';
+  const providerKey = (conversation.provider as ProviderKey) ?? 'gemini';
   const provider = createProvider(providerKey);
   const wrapper = new LLMWrapper({ provider });
 

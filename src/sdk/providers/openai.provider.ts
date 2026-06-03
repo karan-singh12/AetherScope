@@ -49,7 +49,7 @@ export class OpenAIProvider implements LLMProvider {
         err?.message?.includes("API key");
 
       if (isQuotaOrAuthError) {
-        console.warn("OpenAI API limit hit or key invalid. Falling back to mock response.");
+        console.warn(`OpenAI API limit hit or key invalid. Falling back to mock response. Error: ${err?.message || err}`);
         // Simulate network latency (between 0.8s and 2.0s)
         await new Promise((resolve) => setTimeout(resolve, 800 + Math.random() * 1200));
 

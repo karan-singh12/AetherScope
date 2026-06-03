@@ -1,10 +1,12 @@
 import prisma from '../config/prisma';
 
-export const createConversation = async (userId: string) => {
+export const createConversation = async (userId: string, provider?: string, model?: string) => {
   const conversation = await prisma.conversation.create({
     data: {
       userId,
       title: 'New Conversation',
+      ...(provider ? { provider } : {}),
+      ...(model ? { model } : {}),
     },
   });
   return conversation;
