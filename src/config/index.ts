@@ -41,11 +41,9 @@ export const config = {
         userTokenExpire: process.env.USER_TOKEN_EXPIRE_TIME || "10d",
         resetPasswordExpire: parseInt(process.env.RESET_PASSWORD_EXPIRE_TIME || "5", 10),
         otpExpireTime: parseInt(process.env.OTP_EXPIRE_TIME || "5", 10),
-        streamerTokenExpire: process.env.STREAMER_TOKEN_EXPIRE_TIME || "10d",
         secrets: {
             admin: process.env.TOKEN_SECRET_KEY_1,
             user: process.env.TOKEN_SECRET_KEY_2,
-            streamer: process.env.TOKEN_SECRET_KEY_3,
         }
     },
 
@@ -84,14 +82,4 @@ export const config = {
         communityGuidelines: process.env.COMMUNITY_GUIDELINES || "community-guidelines",
     },
 
-    wowza: {
-        baseUrl: process.env.WOWZA_BASE_URL || '',
-        applicationName: process.env.WOWZA_APPLICATION_NAME || '',
-        username: process.env.WOWZA_USERNAME || '',
-        password: process.env.WOWZA_PASSWORD || '',
-        signalingUrl: process.env.WOWZA_SIGNALING_URL || '',
-        rtmpUrl: process.env.WOWZA_RTMP_URL || '',
-        hlsBaseUrl: process.env.WOWZA_HLS_BASE_URL || '',
-        corsOrigins: (process.env.WOWZA_CORS_ORIGINS || '').split(',').map(o => o.trim()).filter(Boolean),
-    }
 };

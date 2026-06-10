@@ -26,38 +26,14 @@ const storage: StorageEngine = multer.diskStorage({
 const multerFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
   (req as any).error = null;
 
-  if (req.body.imagePath && req.body.imagePath === "user") {
-    const allowedTypes = ["png", "jpg", "jpeg"];
-    const fileType = file.mimetype.split("/")[1];
+  const allowedTypes = ["png", "jpg", "jpeg"];
+  const fileType = file.mimetype.split("/")[1];
 
-    if (allowedTypes.includes(fileType)) {
-      cb(null, true);
-    } else {
-      (req as any).error = "Only png, jpg, jpeg allowed.";
-      cb(null, false);
-    }
-  } else if (req.body.imagePath && req.body.imagePath === "streamer") {
-    const allowedTypes = ["png", "jpg", "jpeg"];
-    const fileType = file.mimetype.split("/")[1];
-
-    if (allowedTypes.includes(fileType)) {
-      cb(null, true);
-    } else {
-      (req as any).error = "Only png, jpg, jpeg allowed.";
-      cb(null, false);
-    }
-  } else if (req.body.imagePath && req.body.imagePath === "billboard") {
-    const allowedTypes = ["png", "jpg", "jpeg"];
-    const fileType = file.mimetype.split("/")[1];
-
-    if (allowedTypes.includes(fileType)) {
-      cb(null, true);
-    } else {
-      (req as any).error = "Only png, jpg, jpeg allowed.";
-      cb(null, false);
-    }
-  } else {
+  if (allowedTypes.includes(fileType)) {
     cb(null, true);
+  } else {
+    (req as any).error = "Only png, jpg, jpeg allowed.";
+    cb(null, false);
   }
 };
 

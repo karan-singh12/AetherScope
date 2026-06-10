@@ -78,56 +78,9 @@ export const USER = {
     frozenMember: "This email address has already used the 7-Day Free Membership Trial. Your account is now classified as Frozen Member. Please pay the membership fee first to reactivate it.",
     duplicateLogin: "Duplicate login detected!",
     followsRetrievedSuccessfully: "User follows retrieved successfully.",
-    followedSuccessfully: "Streamer followed successfully.",
-    unfollowedSuccessfully: "Streamer unfollowed successfully.",
-    notFollowing: "You are not following this streamer.",
-    alreadyFollowed: "You are already following this streamer.",
     userMembershipCancelled: "User membership cancelled successfully.",
     idRequired: "User id required.",
     nicknameExists: "Nickname already exists."
-};
-
-export const STREAMER = {
-    streamerAdded: "Streamer added successfully.",
-    streamerUpdated: "Streamer updated successfully.",
-    streamerActivated: "Streamer activated successfully.",
-    streamerDeactivated: "Streamer deactivated successfully.",
-    streamerDeleted: "Streamer deleted successfully.",
-    emailExists: "Email address already exists in the system.",
-    otpSent: "We've sent a new OTP to your registered contact.",
-    verificationLinkSent: "We've sent a new link to your registered email.",
-    otpExpired: "OTP expired.",
-    otpNotMatched: "Invalid OTP.",
-    otpVerified: "OTP verified.",
-    accountNotExists: "Your account does not exist.",
-    accountDeactivated: "Your account has been deactivated. Please contact the admin for further assistance.",
-    accountNotApproved: "Your account has not been approved yet.",
-    invalidLogin: "Invalid credentials.",
-    passwordInvalid: "Invalid password.",
-    loginSuccess: "Login successful.",
-    singUpSuccess: "Your account has been created successfully.",
-    resetPassword: "Password reset successfully.",
-    documentUploaded: "Your documents have been submitted successfully. You will be notified once it is approved.",
-    accountNotVerified: "Please verify your account first.",
-    accountNotCompleted: "Please complete your account first.",
-    socialLoginTypeRequired: "Social login type is required.",
-    contactUsSubmitted: "Your feedback has been submitted successfully.",
-    profileUpdated: "Streamer profile updated successfully.",
-    passwordNotMatched: "Confirm password does not match.",
-    oldPasswordInvalid: "Old password is invalid.",
-    passwordChanged: "Password changed successfully!",
-    guestUserCreated: "Guest user created successfully.",
-    identityVerification: "Your account has been submitted for verification. You will be notified once it is approved.",
-    resetLinkExpired: "Reset Password link has expired.",
-    resetPasswordSuccess: "Password reset successfully.",
-    logoutSuccess: "Logged out successfully.",
-    emailRequired: "Email address required.",
-    passwordRequired: "Password required.",
-    profileExists: "Streamer profile already exists for this email address.",
-    idRequired: "Streamer id required.",
-    notFound: "Streamer not found.",
-    passwordMismatch: "Password and confirm password do not match.",
-    passwordUpdated: "Streamer password updated successfully"
 };
 
 export const EMAILTEMPLATE = {
@@ -200,14 +153,6 @@ export const BILLBOARD = {
     idRequired: "Billboard ID is required.",
     notFound: "Billboard not found."
 };
-
-export const MODEL = {
-    notFound: "Streamer not Found",
-    modelupdated: "Streamer updated successFully.",
-    modelAdded: "Streamer added successfully.",
-    found: "Streamer found successFully.",
-    modelDeleted: "Streamer delete successFully."
-}
 
 export const MEMBERSHIP = {
     noActiveMembership: "No active membership found.",

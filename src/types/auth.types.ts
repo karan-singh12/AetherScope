@@ -7,7 +7,6 @@ export interface IAuthUser {
     name?: string;
     email_address?: string;
     role?: string;
-    isStreamer?: boolean;
     isVerified?: boolean;
     status?: number;
     avatar?: string;
@@ -30,11 +29,6 @@ export function isAuthenticated(req: Request): req is AuthenticatedRequest {
 // Type guard to check if user has specific role
 export function hasRole(user: IAuthUser, role: string): boolean {
     return user.role === role;
-}
-
-// Type guard to check if user is a streamer
-export function isStreamer(user: IAuthUser): boolean {
-    return user.isStreamer === true;
 }
 
 // Type guard to check if user is verified
