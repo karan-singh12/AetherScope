@@ -200,3 +200,8 @@ export const SECURITY = {
     ipBlocked: "IP address blocked successfully",
     ipUnblocked: "IP address unblocked successfully"
 }
+
+export const SYSTEM = {
+    internalServerError: "Internal server error.",
+    databaseError: "Unable to connect to the database. Please try again later.",
+};
