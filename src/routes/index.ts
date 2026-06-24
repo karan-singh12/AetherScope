@@ -9,6 +9,14 @@ import authMiddleware from "../middleware/auth.middleware";
 
 const router = Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 router.use("/user", userRouter);
 router.use("/auth", authRouter);
 router.use("/conversations", authMiddleware, conversationsRouter);
