@@ -41,36 +41,8 @@ export class OpenAIProvider implements LLMProvider {
 
       return { text, usage, provider: this.providerName, model: opts.model ?? this.defaultModel };
     } catch (err: any) {
-      const isQuotaOrAuthError =
-        err?.status === 429 ||
-        err?.status === 401 ||
-        err?.message?.includes("quota") ||
-        err?.message?.includes("billing") ||
-        err?.message?.includes("API key");
-
-      if (isQuotaOrAuthError) {
-        console.warn(`OpenAI API limit hit or key invalid. Falling back to mock response. Error: ${err?.message || err}`);
-        // Simulate network latency (between 0.8s and 2.0s)
-        await new Promise((resolve) => setTimeout(resolve, 800 + Math.random() * 1200));
-
-        const mockResponseText = `[Simulated Response] I received your prompt: "${prompt}". Currently, the OpenAI API key is unavailable or has exceeded its quota, so this response was generated locally in fallback mock mode to ensure observability tracing and chat continue working.`;
-
-        const promptTokens = Math.ceil(prompt.length / 4);
-        const completionTokens = Math.ceil(mockResponseText.length / 4);
-
-        return {
-          text: mockResponseText,
-          usage: {
-            prompt_tokens: promptTokens,
-            completion_tokens: completionTokens,
-            total_tokens: promptTokens + completionTokens,
-          },
-          provider: this.providerName,
-          model: opts.model ?? this.defaultModel,
-        };
-      }
-
-      throw err;
+      console.error(`OpenAI API error: ${err?.message || err}`);
+      throw new Error(`OpenAI API error: ${err?.message || 'API call failed'}`);
     }
   }
 }

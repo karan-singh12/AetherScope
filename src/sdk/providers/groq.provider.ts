@@ -12,7 +12,7 @@ export class GroqProvider implements LLMProvider {
     const apiBaseUrl = GROQ_API_BASE_URL;
 
     if (!apiKey) {
-      return this.generateMock(prompt, model, 'Groq API key is not configured in environment.');
+      throw new Error('Groq API key is not configured in environment.');
     }
 
     try {
@@ -57,8 +57,8 @@ export class GroqProvider implements LLMProvider {
         model,
       };
     } catch (err: any) {
-      console.warn(`Groq API error. Falling back to mock response. Error: ${err?.message || err}`);
-      return this.generateMock(prompt, model, err?.message || 'API call failed');
+      console.error(`Groq API error: ${err?.message || err}`);
+      throw new Error(`Groq API error: ${err?.message || 'API call failed'}`);
     }
   }
 

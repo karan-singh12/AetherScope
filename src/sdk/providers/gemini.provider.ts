@@ -12,7 +12,7 @@ export class GeminiProvider implements LLMProvider {
     const apiBaseUrl = GEMINI_API_BASE_URL;
 
     if (!apiKey) {
-      return this.generateMock(prompt, model, 'Gemini API key is not configured in environment.');
+      throw new Error('Gemini API key is not configured in environment.');
     }
 
     try {
@@ -60,8 +60,8 @@ export class GeminiProvider implements LLMProvider {
         model,
       };
     } catch (err: any) {
-      console.warn(`Gemini API error. Falling back to mock response. Error: ${err?.message || err}`);
-      return this.generateMock(prompt, model, err?.message || 'API call failed');
+      console.error(`Gemini API error: ${err?.message || err}`);
+      throw new Error(`Gemini API error: ${err?.message || 'API call failed'}`);
     }
   }
 
