@@ -205,3 +205,11 @@ export const SYSTEM = {
     internalServerError: "Internal server error.",
     databaseError: "Unable to connect to the database. Please try again later.",
 };
+
+export const LLM = {
+    highDemand: "The AI model is currently experiencing high demand. Please try again in a few moments.",
+    unavailable: "The AI service is temporarily unavailable. Please try again later.",
+    unconfigured: "The selected AI provider is not configured. Please contact the administrator.",
+    quotaExceeded: "The AI service quota has been exceeded or the API key is invalid.",
+    generalError: "Failed to generate response from the AI provider. Please try again."
+};
